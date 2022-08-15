@@ -21,3 +21,32 @@ document.getElementById('deposit-button').addEventListener('click',function(){
     const totalBalanceAmount = getBalanceAmount + depositInputAmount;
     getBalance.innerText = totalBalanceAmount;
 });
+
+
+document.getElementById('withdraw-button').addEventListener('click',function(){
+    // get withdraw amount 
+    const withdrawInputField = document.getElementById('withdraw-input');
+    const withdrawInputText = withdrawInputField.value;
+    const withdrawInputAmount = parseFloat(withdrawInputText);
+    //clear withdraw amount 
+    withdrawInputField.value = '';
+
+    //get total withdraw display
+    const getWithdrawTotal = document.getElementById('withdraw-total');
+    const getWithdrawTotalText = getWithdrawTotal.innerText;
+    const getWithdrawTotalAmount = parseFloat(getWithdrawTotalText);
+   
+    const totalWithdrawAmount = getWithdrawTotalAmount + withdrawInputAmount;
+    getWithdrawTotal.innerText = totalWithdrawAmount;
+
+    //get total balance update
+    const getBalance = document.getElementById('total-balance');
+    const getBalanceText = getBalance.innerText;
+    const getBalanceAmount = parseFloat(getBalanceText);
+    console.log(withdrawInputAmount);
+
+    const totalBalanceAmount= getBalanceAmount - withdrawInputAmount;
+    getBalance.innerText =totalBalanceAmount;
+
+
+});
